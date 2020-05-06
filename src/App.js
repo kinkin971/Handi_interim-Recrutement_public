@@ -1,25 +1,28 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState } from 'react';
+import Header from '../header/Header'
+import Postulez from '../postuler/Posltulez'
+import Recrutez from '../recrutez/Recrutez'
+import "../../styles/_Style.app.css"
+
+
+
 
 function App() {
+
+  const [bool, setBool] = useState(false)
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+      <Header />
+      <div class="container-fluid" id="app">
+        <div class="row">
+          {
+            bool ? <Postulez /> : <Recrutez />
+          }
+        </div>
+      </div>
+      <button onClick={console.log("o")} >valider</button>
+    </>
   );
 }
 
